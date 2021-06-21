@@ -34,6 +34,8 @@ namespace RotateObject
             this.tmrShoot = new System.Windows.Forms.Timer(this.components);
             this.LbsScore = new System.Windows.Forms.Label();
             this.LbsScore1 = new System.Windows.Forms.Label();
+            this.Lable1 = new System.Windows.Forms.Label();
+            this.LbLives = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tmrSpaceship
@@ -65,6 +67,26 @@ namespace RotateObject
             this.LbsScore1.Size = new System.Drawing.Size(13, 13);
             this.LbsScore1.TabIndex = 1;
             this.LbsScore1.Text = "0";
+            this.LbsScore1.Click += new System.EventHandler(this.LbsScore1_Click);
+            // 
+            // Lable1
+            // 
+            this.Lable1.AutoSize = true;
+            this.Lable1.Location = new System.Drawing.Point(404, 93);
+            this.Lable1.Name = "Lable1";
+            this.Lable1.Size = new System.Drawing.Size(32, 13);
+            this.Lable1.TabIndex = 2;
+            this.Lable1.Text = "Lives";
+            // 
+            // LbLives
+            // 
+            this.LbLives.AutoSize = true;
+            this.LbLives.Location = new System.Drawing.Point(444, 95);
+            this.LbLives.Name = "LbLives";
+            this.LbLives.Size = new System.Drawing.Size(13, 13);
+            this.LbLives.TabIndex = 3;
+            this.LbLives.Text = "3";
+            this.LbLives.Click += new System.EventHandler(this.LbLives_Click);
             // 
             // Form1
             // 
@@ -72,6 +94,8 @@ namespace RotateObject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::RotateObject.Properties.Resources.image1;
             this.ClientSize = new System.Drawing.Size(484, 361);
+            this.Controls.Add(this.LbLives);
+            this.Controls.Add(this.Lable1);
             this.Controls.Add(this.LbsScore1);
             this.Controls.Add(this.LbsScore);
             this.DoubleBuffered = true;
@@ -96,6 +120,8 @@ namespace RotateObject
         private System.Windows.Forms.Timer tmrShoot;
         private System.Windows.Forms.Label LbsScore;
         private System.Windows.Forms.Label LbsScore1;
+        private System.Windows.Forms.Label Lable1;
+        private System.Windows.Forms.Label LbLives;
     }
 }
 

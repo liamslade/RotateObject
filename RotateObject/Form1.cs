@@ -12,6 +12,7 @@ namespace RotateObject
 {
     public partial class Form1 : Form
     {
+        Planet[] planet = new Planet[7];
         Graphics g; //declare a graphics object called g so we can draw on the Form
         Spaceship spaceship = new Spaceship(); //create an instance of the Spaceship Class called spaceship
         bool turnLeft, turnRight;
@@ -19,8 +20,9 @@ namespace RotateObject
         List<Planet> planets = new List<Planet>();
         List<Missile> missiles = new List<Missile>();
         string move;
+        int score, lives;
 
-       
+
 
 
 
@@ -125,11 +127,21 @@ namespace RotateObject
                             missiles.Remove(m);
                             break;
                         }
-
+                      
                     }
                 }
             }
             }
+
+        private void LbsScore1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LbLives_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
