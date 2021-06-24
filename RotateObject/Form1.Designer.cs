@@ -36,17 +36,20 @@ namespace RotateObject
             this.LbsScore1 = new System.Windows.Forms.Label();
             this.Lable1 = new System.Windows.Forms.Label();
             this.LbLives = new System.Windows.Forms.Label();
+            this.TmrPlanet = new System.Windows.Forms.Timer(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tmrSpaceship
             // 
-            this.tmrSpaceship.Enabled = true;
             this.tmrSpaceship.Interval = 1;
             this.tmrSpaceship.Tick += new System.EventHandler(this.tmrSpaceship_Tick);
             // 
             // tmrShoot
             // 
-            this.tmrShoot.Enabled = true;
             this.tmrShoot.Tick += new System.EventHandler(this.tmrShoot_Tick);
             // 
             // LbsScore
@@ -85,8 +88,37 @@ namespace RotateObject
             this.LbLives.Name = "LbLives";
             this.LbLives.Size = new System.Drawing.Size(13, 13);
             this.LbLives.TabIndex = 3;
-            this.LbLives.Text = "3";
+            this.LbLives.Text = "5";
             this.LbLives.Click += new System.EventHandler(this.LbLives_Click);
+            // 
+            // TmrPlanet
+            // 
+            this.TmrPlanet.Tick += new System.EventHandler(this.TmrPlanet_Tick);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.startToolStripMenuItem,
+            this.stopToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(484, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // startToolStripMenuItem
+            // 
+            this.startToolStripMenuItem.Name = "startToolStripMenuItem";
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.startToolStripMenuItem.Text = "Start";
+            this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
+            // 
+            // stopToolStripMenuItem
+            // 
+            this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.stopToolStripMenuItem.Text = "Stop";
+            this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -98,8 +130,10 @@ namespace RotateObject
             this.Controls.Add(this.Lable1);
             this.Controls.Add(this.LbsScore1);
             this.Controls.Add(this.LbsScore);
+            this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -109,6 +143,8 @@ namespace RotateObject
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,6 +158,10 @@ namespace RotateObject
         private System.Windows.Forms.Label LbsScore1;
         private System.Windows.Forms.Label Lable1;
         private System.Windows.Forms.Label LbLives;
+        private System.Windows.Forms.Timer TmrPlanet;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
     }
 }
 

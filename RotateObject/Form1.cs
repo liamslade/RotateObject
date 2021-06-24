@@ -19,7 +19,7 @@ namespace RotateObject
         //declare a list  missiles from the Missile class
         List<Planet> planets = new List<Planet>();
         List<Missile> missiles = new List<Missile>();
-        string move;
+
         int score, lives;
 
 
@@ -66,7 +66,7 @@ namespace RotateObject
                 }
 
             }
-            }
+        }
 
 
 
@@ -76,11 +76,11 @@ namespace RotateObject
             {
                 spaceship.rotationAngle += 5;
             }
-            if (turnLeft) { 
+            if (turnLeft) {
                 spaceship.rotationAngle -= 5;
-        }
-    
-        Invalidate();
+            }
+
+            Invalidate();
 
         }
 
@@ -102,7 +102,7 @@ namespace RotateObject
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            
+
         }
 
         private void tmrShoot_Tick(object sender, EventArgs e)
@@ -119,19 +119,27 @@ namespace RotateObject
                             missiles.Remove(m);
                             break;
                         }
+
+
                         if (p.planetRec.IntersectsWith(m.missileRec))
-
-
                         {
+
+                            score += 1;//update the score
+                            LbsScore1.Text = score.ToString();// display score
                             p.y = -20;// relocate planet to the top of the form
                             missiles.Remove(m);
                             break;
+
+
                         }
-                      
+
+
+
+
                     }
                 }
             }
-            }
+        }
 
         private void LbsScore1_Click(object sender, EventArgs e)
         {
@@ -141,6 +149,52 @@ namespace RotateObject
         private void LbLives_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void TmrPlanet_Tick(object sender, EventArgs e)
+        {
+            foreach (Planet p in planets)
+
+            {
+
+                {
+                    if (spaceship.spaceRec.IntersectsWith(p.planetRec))
+                    {
+                        
+                        //reset planet[i] back to top of panel
+                        p.y = 10; // set  y value of planetRec
+                        lives -= 1;// lose a life
+                        LbLives.Text = lives.ToString();// display number of lives
+                        CheckLives();
+
+                    }
+                }
+            }
+        }
+        private void CheckLives()
+        {
+            if (lives == 0){
+                TmrPlanet.Enabled = false;
+                tmrSpaceship.Enabled = false;
+                tmrShoot.Enabled = false;
+                MessageBox.Show("game over");
+              
+            }
+        }
+
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lives = 5;
+            TmrPlanet.Enabled = true;
+            tmrSpaceship.Enabled = true;
+            tmrShoot.Enabled = true;
+        }
+
+        private void stopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TmrPlanet.Enabled = false;
+            tmrSpaceship.Enabled = false;
+            tmrShoot.Enabled = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -154,4 +208,10 @@ namespace RotateObject
             if (e.KeyData == Keys.Right) { turnRight = false ; }
         }
     }
-}
+    
+    
+
+    
+
+
+    }
